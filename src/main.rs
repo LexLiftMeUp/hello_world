@@ -1,6 +1,6 @@
 fn main() {
-    let mut x = 10;
-    println!("x is {}", x);
-    x = 20;
-    println!("x is {}", x);
+    let a = 10;
+    let b = 3.0;
+    let c = a as f64 / b;
+    println!("x is {}", c);
 }

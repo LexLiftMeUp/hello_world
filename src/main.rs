@@ -1,6 +1,13 @@
 fn main() {
-    let a = 10;
-    let b = 3.0;
-    let c = a as f64 / b;
-    println!("x is {:08.3}\na is {}", c, a);
+
+    let mut value = 0b1111_0101u8;
+    println!("the value is {}", value);
+    println!("the value is {:08b}", value);
+
+    value = !value;
+    println!("the value is {:08b}", value);
+
+    value = value & 0b1111_0111;
+    println!("the value is {:08b}", value);
+    println!("bit 6 is {}", value & 0b0100_0000);
 }

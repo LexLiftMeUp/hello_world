@@ -1,13 +1,12 @@
 fn main() {
 
-    let mut value = 0b1111_0101u8;
-    println!("the value is {}", value);
-    println!("the value is {:08b}", value);
+    let celcius_temp = 23.0;
+    let farenheit_temp = celcius_to_farenheit(celcius_temp);
 
-    value = !value;
-    println!("the value is {:08b}", value);
-
-    value = value & 0b1111_0111;
-    println!("the value is {:08b}", value);
-    println!("bit 6 is {}", value & 0b0100_0000);
+    assert_eq!(farenheit_temp, 73.4);
+    println!("test passed");
 }
+
+    fn celcius_to_farenheit(x: f64) -> f64{
+        x * 1.8 + 32.0
+    }

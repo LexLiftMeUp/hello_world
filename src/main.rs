@@ -1,30 +1,31 @@
+use rand::prelude::*;
+use std::io;
 fn main() {
 
-    let numbers = [1, 9, -2, 0, 23, 20, -7, 13, 37, 20, 56, -18, 20, 3];
-    let mut max: i32;
-    let mut min: i32;
-    let mut mean: f64;
+    let number = thread_rng().gen_range(1..101);
+    println!("Guess a number between 1 and 100");
 
+     
 
-    max = numbers[0];
-    min = numbers[0];
-    mean = 0.0;
+    loop {
+        let mut buffer = String::new();
 
-    for num in numbers{
-
-        if num > max {
-            max = num;
+    io::stdin().read_line(&mut buffer);
+    
+    let ints = buffer.trim().parse::<i32>().expect("Invalid input: Please enter a valid integer");
+        if ints < number{
+            println!("Guess higher");
         }
-        else if num < min {
-            min = num
+        else if ints > number{
+            println!("guess lower");
         }
-        mean += num as f64;
+        else{
+            println!("You got it!");
+            break;
+        }
+        
     }
-    mean /= numbers.len() as f64;
+    println!("The number was {}!", number);
 
-    assert_eq!(max, 56);
-    assert_eq!(min, -18);
-    assert_eq!(mean, 12.5);
-    println!("test passed");
 }
  
